@@ -2,7 +2,7 @@
 def search_replace(my_list, search, replace):
     new = []
     if not my_list:
-        return new
+        return None
     else: 
         new = list(map(lambda x: replace if x == search else x, my_list))
         return new
