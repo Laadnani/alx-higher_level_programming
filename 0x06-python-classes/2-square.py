@@ -3,6 +3,8 @@
 
 
 class Square:
+    """ Define a squre"""
+    def __init__(self, size=0):
     """Constructor.
 
     Args:
