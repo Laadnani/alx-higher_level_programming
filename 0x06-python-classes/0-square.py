@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-''' define a class '''
+''' Square class '''
 
 class Square:
-
-    def __init__(self):
-        " Define a squre "
-        pass
+    " Define a Square "
+    pass
