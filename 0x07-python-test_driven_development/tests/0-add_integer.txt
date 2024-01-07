@@ -1,0 +1,15 @@
+The ``0-add_integer`` module
+============================
+
+using ``0-add_integer``
+---------------------
+
+import module:
+	>>> 0-add_integer = __import__('0-add_integer').add_integer
+First test:
+	>>> add_integer(2)
+	100
+
+Second test:
+	>>> add_integer(0)
+	98
