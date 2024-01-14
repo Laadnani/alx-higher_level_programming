@@ -13,7 +13,7 @@ class Square(Rectangle):
     def __str__(self):
         """ String representing our new guest """
 
-        return f"[{self.__class__.__name__} ({self.id}) {self.x}/{self.y} - {self.width}]"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
@@ -24,7 +24,29 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         """ Setter for size """
-       
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+
+        if value <= 0:
+            raise ValueError("width must be >= 0")
+
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """ updating the square values if needed """
+
+        attributes = ["id", "size", "x", "y"]
+
+        if args:
+            for i in range(len(args)):
+                if i < len(attributes):
+                    setattr(self, attributes[i], args[i])
+                else:
+                    break
+
+        elif kwargs:
+            for keys, values in kwargs.items():
+                if keys in attributes:
+                    setattr(self, keys, values)
 
