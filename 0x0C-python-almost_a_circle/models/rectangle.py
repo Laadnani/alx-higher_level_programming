@@ -100,8 +100,18 @@ class Rectangle(Base):
 
     def __str__(self):
         """ representation of the Rec Class """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
-    def update(self, *args):
-        """ updating the rectangle using non keyword args """
-        attributes = []
+    def update(self, *args, **kwargs):
+        """ updating the rectangle depending on the args given"""
+        attributes = ["id", "width", "height", "x", "y"]
+
+        if args:
+            for i in range(len(args)):
+                if i < len(attributes):
+                    setattr(self, attributes[i], args[i])
+                else:
+                    break
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
