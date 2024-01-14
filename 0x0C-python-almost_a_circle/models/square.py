@@ -49,4 +49,13 @@ class Square(Rectangle):
             for keys, values in kwargs.items():
                 if keys in attributes:
                     setattr(self, keys, values)
+    
 
+    def to_dictionary(self):
+        """ Return dictionary representation of our Cute guest """
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
